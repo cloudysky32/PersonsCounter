@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/searchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="Search" />
+
+        <com.howtodo.personscounter.CustomAutoComplete
+            android:id="@+id/searchBar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/searchButton"
+            android:imeOptions="actionSearch"
+            android:editable="true"
+            android:hint="type here"
+            android:singleLine="true" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <com.howtodo.personscounter.MyCustomMapView
+            android:id="@+id/map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:apiKey="0F33DNMWSpX31Yy7YNmr__1Vu8k_-l5clGhUN8A"
+            android:clickable="true" />
+        
+        <SlidingDrawer
+            android:id="@+id/slidingdrawer"
+            android:layout_width="fill_parent"
+            android:layout_height="270dp"
+            android:layout_gravity="bottom"
+            android:bottomOffset="10dp"
+            android:content="@+id/content"
+            android:handle="@+id/handle"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@id/handle"
+                android:layout_width="fill_parent"
+                android:layout_height="10dp" />
+            <LinearLayout
+                android:id="@id/content"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="#FFFFFF"
+                android:orientation="vertical" >
+
+                <ListView
+                    android:id="@+id/addslist"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@android:color/transparent" />
+            </LinearLayout>
+        </SlidingDrawer>
+        
+        <SlidingDrawer
+            android:id="@+id/slidingdrawerR"
+            android:layout_width="fill_parent"
+            android:layout_height="250dp"
+            android:layout_gravity="bottom"
+            android:layout_marginRight="-20dp"
+            android:content="@+id/content"
+            android:handle="@+id/handle"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@id/handle"
+                android:layout_width="10dp"
+                android:layout_height="250dp" />
+
+            <LinearLayout
+                android:id="@id/content"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="#FFFFFF"
+                android:orientation="vertical" >
+                
+                <RelativeLayout
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:orientation="horizontal"
+			        android:layout_marginRight="20dp" >
+
+                    <ToggleButton
+                        android:id="@+id/favorite"
+					    android:layout_width="30dp"
+					    android:layout_height="30dp"
+					    android:layout_marginRight="10dp"
+			            android:layout_alignParentRight="true"
+			            android:textOn=""
+			            android:textOff=""
+					    android:background="@drawable/btn_star_big_off" />  
+                    <TextView
+	                    android:id="@+id/selected"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:layout_marginLeft="10dp"
+	                    android:gravity="left"
+	                    android:layout_toLeftOf="@id/favorite"
+	                    android:textColor="#000000"
+	                    android:textSize="15dip"
+	                    android:textStyle="bold" />
+     
+			    </RelativeLayout>
+    
+                <ListView
+                    android:id="@+id/resultlist"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@android:color/transparent" />
+                <!-- android:dividerHeight="10.0sp" -->
+            </LinearLayout>
+        </SlidingDrawer>
+        
+    </FrameLayout>
+
+</LinearLayout>
